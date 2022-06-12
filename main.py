@@ -5,7 +5,6 @@ import tkinter as tk
 from tkinter import ttk
 from string import ascii_lowercase, ascii_uppercase, digits, punctuation
 
-# ^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]).*
 SIMPLE_PASSWORD_PATTERN = '^(?=.*?[a-z])(?=.*?[0-9])'
 special_character_pattern = '(?=.*?[!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~]).*'
 capital_character_pattern = '(?=.*?[A-Z])'
