@@ -24,9 +24,9 @@ def generate_password():
         password_characters += ascii_uppercase
         password_pattern += capital_character_pattern
     password_pattern += '.*$'
-    new_password = ''.join(secrets.choice(password_characters) for _ in range(iv_password_lengh.get()))
+    new_password = ''.join(secrets.choice(password_characters) for _ in range(iv_password_length.get()))
     while not re.match(password_pattern, new_password):
-        new_password = ''.join(secrets.choice(password_characters) for _ in range(iv_password_lengh.get()))
+        new_password = ''.join(secrets.choice(password_characters) for _ in range(iv_password_length.get()))
     ent_password.delete(0, tk.END)
     ent_password.insert(0, new_password)
 
@@ -55,8 +55,8 @@ ent_password.grid(column=0, row=3, sticky=tk.EW)
 frm_main.columnconfigure(0, weight=1)
 
 # password length OptionMenu
-iv_password_lengh = tk.IntVar()
-opt_length = ttk.OptionMenu(frm_main, iv_password_lengh, *[length for length in range(16, 65)], )
+iv_password_length = tk.IntVar()
+opt_length = ttk.OptionMenu(frm_main, iv_password_length, 16, *[length for length in range(16, 65)], )
 opt_length.grid(column=0, row=0, sticky=tk.EW)
 
 frm_btn_actions = ttk.Frame(master=frm_main, padding=5)
