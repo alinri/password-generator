@@ -6,8 +6,8 @@ from tkinter import ttk
 from string import ascii_lowercase, ascii_uppercase, digits, punctuation
 
 SIMPLE_PASSWORD_PATTERN = '^(?=.*?[a-z])(?=.*?[0-9])'
-special_character_pattern = '(?=.*?[!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~]).*'
-capital_character_pattern = '(?=.*?[A-Z])'
+SPECIAL_CHARACTER_PATTERN = '(?=.*?[!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~]).*'
+CAPITAL_CHARACTER_PATTERN = '(?=.*?[A-Z])'
 
 
 def copy_password():
@@ -19,10 +19,10 @@ def generate_password():
     password_pattern = SIMPLE_PASSWORD_PATTERN
     if bv_special_characters.get():
         password_characters += punctuation
-        password_pattern += special_character_pattern
+        password_pattern += SPECIAL_CHARACTER_PATTERN
     if bv_capital_alphabet.get():
         password_characters += ascii_uppercase
-        password_pattern += capital_character_pattern
+        password_pattern += CAPITAL_CHARACTER_PATTERN
     password_pattern += '.*$'
     new_password = ''.join(secrets.choice(password_characters) for _ in range(iv_password_length.get()))
     while not re.match(password_pattern, new_password):
